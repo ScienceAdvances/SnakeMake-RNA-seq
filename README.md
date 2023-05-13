@@ -13,6 +13,7 @@ To configure this workflow, modify ``config/config.yaml`` according to your need
 
 # Sample sheet
 * Add samples to `config/samples.tsv`. Only the column `Sample` is mandatory, but any additional columns can be added.
-* For each sample, add one or more sequencing units (runs, lanes or replicates) to the `Unit` column of `config/samples.tsv`. For each sample, define `Group`(experimental or clinical attribute).
+* For each sample, add one or more sequencing units (runs, lanes or replicates) to the `Unit` column of `config/samples.tsv`. 
+* For each sample, define `Group` column(experimental or clinical attribute).
 
 ![](https://www.hualigs.cn/image/645f459f83028.jpg)
