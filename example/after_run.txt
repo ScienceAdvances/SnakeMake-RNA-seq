@@ -1,6 +1,4 @@
 .
-├── after.txt
-├── before.txt
 ├── config
 │   ├── config.yaml
 │   ├── README.md
@@ -152,5 +150,3 @@
     │   ├── normalise.py
     │   └── qc_plot.R
     └── Snakefile
-
-19 directories, 134 files
