@@ -1,0 +1,35 @@
+#=====================================================
+# common
+#=====================================================
+
+include: "rules/common.smk"
+
+#=====================================================
+# rule order
+#=====================================================
+
+ruleorder: star_index > star_align
+
+#=====================================================
+# final outputs
+#=====================================================
+
+rule all:
+    input:
+        genome_prefix+"STAR",
+        genome_prefix+"genome.fa.fai",
+        "results/star/star.csv.gz",
+        "report/qc_plot.pdf",
+        "report/align_multiqc.html",
+        "report/fastp_multiqc.html",
+        expand("results/DEA/DEA_res_{_}.csv.gz",_=get_contrast())
+
+#=====================================================
+# Modules
+#=====================================================
+
+include: "rules/ref.smk"
+include: "rules/trim.smk"
+include: "rules/align.smk"
+include: "rules/qc.smk"
+include: "rules/dea.smk"
