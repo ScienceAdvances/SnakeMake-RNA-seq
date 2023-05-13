@@ -1,12 +1,12 @@
 # A SnakeMake workflow for Bulk RNA-seq
 
-Bulk RNA-seq quantification and quality control workflow Reads were mapped onto homo_sapiens build GRCh38 with STAR, and adapters were removed with fastp.
+Reads were mapped onto homo_sapiens build GRCh38 with STAR, and adapters were removed with fastp.
 
 For nomalisztion, gtftools was used to calculate gene_length and bioninfokit was used to give TPM, FPKM and CPM results.
 
 For quality control, PCA plot, dendrogram plot and heatmap were used to show differences among samples or groups.
 
-PyDESeq2 was used to do differential gene anlysis.
+PyDESeq2 was used to perform differential expression anlysis.
 
 # General settings
 To configure this workflow, modify ``config/config.yaml`` according to your needs, following the explanations provided in the file.
