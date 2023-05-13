@@ -16,10 +16,14 @@ To configure this workflow, modify ``config/config.yaml`` according to your need
 * For each sample, add one or more sequencing units (runs, lanes or replicates) to the `Unit` column of `config/samples.tsv`. 
 * For each sample, define `Group` column(experimental or clinical attribute).
 
-# QC plot
+# Report
 ![](https://www.hualigs.cn/image/645f459f83028.jpg)
-# Differential expression anlysis
+
+# QC plot
 ![](https://www.hualigs.cn/image/645f78613c2ff.jpg)
+
+# Differential expression anlysis
+
 ## MA plot
 ![](https://www.hualigs.cn/image/645f78bcf38c5.jpg)
 ## Volcano plot
