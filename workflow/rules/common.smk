@@ -19,19 +19,23 @@ configfile: "config/config.yaml"
 validate(config, schema="../schemas/config.schema.yaml")
 
 samples = pd.read_csv(config["samples"], dtype=str,sep='\t',header=0).fillna(value="")
+if not "Unit" in samples.columns:
+    samples.loc[:,"Unit"]=""
+samples.loc[:,"Unit"] = [f"_{x}" if x else x for x in samples.Unit]
 samples.set_index(keys=["Sample", "Unit"], drop=False,inplace=True)
 
 samples.index = samples.index.set_levels(
 	[i.astype(str) for i in samples.index.levels]
 )  # enforce str in index
+# if units are not none, add a _ prefix
 fastqs = config["fastqs"].get("dir")
 if config["fastqs"].get("pe"):
-	fq1=[f"{fastqs}/{x}_{y}_1.fastq.gz" for x,y in zip(samples.Sample,samples.Unit)]
-	fq2=[f"{fastqs}/{x}_{y}_2.fastq.gz" for x,y in zip(samples.Sample,samples.Unit)]
+	fq1=[f"{fastqs}/{x}{y}_1.fastq.gz" for x,y in zip(samples.Sample,samples.Unit)]
+	fq2=[f"{fastqs}/{x}{y}_2.fastq.gz" for x,y in zip(samples.Sample,samples.Unit)]
 	samples.insert(loc=0,column="fq2",value=fq2)
 	samples.insert(loc=0,column="fq1",value=fq1)
 else:
-	fq1=[f"{fastqs}/{x}_{y}.fastq.gz" for x,y in zip(samples.Sample,samples.Unit)]
+	fq1=[f"{fastqs}/{x}{y}.fastq.gz" for x,y in zip(samples.Sample,samples.Unit)]
 	samples.insert(loc=0,column="fq1",value=fq1)
 
 validate(samples, schema="../schemas/samples.schema.yaml")
