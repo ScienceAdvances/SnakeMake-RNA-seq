@@ -17,14 +17,14 @@ To configure this workflow, modify ``config/config.yaml`` according to your need
 * For each sample, define `Group` column(experimental or clinical attribute).
 
 # Report
-![](https://www.hualigs.cn/image/645f459f83028.jpg)
+![](example/smk-report.png)
 
 # QC plot
-![](https://www.hualigs.cn/image/645f78613c2ff.jpg)
+![](example/qc_plot.jpg)
 
 # Differential expression anlysis
 
 ## MA plot
-![](https://www.hualigs.cn/image/645f78bcf38c5.jpg)
+![](example/MA.png)
 ## Volcano plot
-![](https://www.hualigs.cn/image/645f78e403b85.jpg)
+![](example/Volcano.png)
